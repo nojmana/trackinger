@@ -7,9 +7,9 @@ using trackinger.Models;
 
 namespace trackinger.Models
 {
-    public class trackingerContext : DbContext
+    public class TrackingerContext : DbContext
     {
-        public trackingerContext (DbContextOptions<trackingerContext> options)
+        public TrackingerContext (DbContextOptions<TrackingerContext> options)
             : base(options)
         {
         }
