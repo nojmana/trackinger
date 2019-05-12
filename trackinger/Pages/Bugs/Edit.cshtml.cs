@@ -36,7 +36,7 @@ namespace trackinger.Pages.Bugs
             {
                 return NotFound();
             }
-           ViewData["CreatorId"] = new SelectList(_context.User, "Id", "Id");
+            ViewData["CreatorId"] = new SelectList(_context.User, "Id", "Login");
             return Page();
         }
 

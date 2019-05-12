@@ -37,8 +37,8 @@ namespace trackinger.Pages.Notification
             {
                 return NotFound();
             }
-           ViewData["AssigneeId"] = new SelectList(_context.User, "Id", "Id");
-           ViewData["BugId"] = new SelectList(_context.Bug, "Id", "Id");
+           ViewData["AssigneeId"] = new SelectList(_context.User, "Id", "Login");
+           ViewData["BugId"] = new SelectList(_context.Bug, "Id", "Title");
             return Page();
         }
 

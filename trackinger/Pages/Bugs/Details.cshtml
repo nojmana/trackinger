@@ -9,13 +9,19 @@
 
 <div>
     <h4>Bug</h4>
-    <hr />
+    <hr/>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Bug.CreationDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Bug.CreationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bug.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bug.Title)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Bug.Description)
@@ -33,7 +39,7 @@
             @Html.DisplayNameFor(model => model.Bug.Creator)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Bug.Creator.Id)
+            @Html.DisplayFor(model => model.Bug.Creator.Login)
         </dd>
     </dl>
 </div>

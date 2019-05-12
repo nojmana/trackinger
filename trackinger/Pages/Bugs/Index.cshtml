@@ -15,6 +15,9 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Bug[0].CreationDate)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].Title)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Bug[0].Description)
@@ -35,13 +38,16 @@
                 @Html.DisplayFor(modelItem => item.CreationDate)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Priority)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Creator.Id)
+                @Html.DisplayFor(modelItem => item.Creator.Login)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

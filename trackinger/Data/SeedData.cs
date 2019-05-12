@@ -47,17 +47,19 @@ namespace trackinger.Models
             context.Bug.AddRange(
                 new Bug
                 {
+                    Title = "Shopping cart display",
                     Description =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum, purus eu aliquam blandit, lectus dolor tincidunt urna, vitae",
-                    Priority = Priority.high,
+                        "When opening a shopping cart display, webpage crushes and there is a 500 http error displayed.",
+                    Priority = Priority.medium,
                     CreationDate = new DateTime(2019, 5, 12, 12, 30, 52),
                     CreatorId = 1
                 },
                 new Bug
                 {
+                    Title = "Logging with invalid credentials",
                     Description =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis lorem orci, sed placerat mi sodales vitae. Nam at tortor.",
-                    Priority = Priority.medium,
+                        "When user enters wrong password, he is authorized anyway.",
+                    Priority = Priority.high,
                     CreationDate = new DateTime(2019, 4, 1, 13, 30, 52),
                     CreatorId = 2
                 }

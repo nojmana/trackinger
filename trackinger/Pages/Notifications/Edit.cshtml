@@ -1,4 +1,5 @@
 ﻿@page
+@using trackinger.Models
 @model trackinger.Pages.Notification.EditModel
 
 @{
@@ -26,17 +27,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Notification.Status" class="control-label"></label>
-                <select asp-for="Notification.Status" class="form-control"></select>
+                <select asp-for="Notification.Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()">
+                    <option selected="selected" value="">select option</option>
+                </select>
                 <span asp-validation-for="Notification.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Notification.BugId" class="control-label"></label>
-                <select asp-for="Notification.BugId" class="form-control" asp-items="ViewBag.BugId"></select>
+                <select asp-for="Notification.BugId" class="form-control" asp-items="ViewBag.BugId">
+                    <option selected="selected" value="">select option</option>
+                </select>
                 <span asp-validation-for="Notification.BugId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Notification.AssigneeId" class="control-label"></label>
-                <select asp-for="Notification.AssigneeId" class="form-control" asp-items="ViewBag.AssigneeId"></select>
+                <select asp-for="Notification.AssigneeId" class="form-control" asp-items="ViewBag.AssigneeId">
+                    <option selected="selected" value="">select option</option>
+                </select>
                 <span asp-validation-for="Notification.AssigneeId" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -38,16 +38,16 @@
                 @Html.DisplayFor(modelItem => item.NotificationDate)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Bug.Title)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Bug.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Assignee.Id)
+                @Html.DisplayFor(modelItem => item.Assignee.Login)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
