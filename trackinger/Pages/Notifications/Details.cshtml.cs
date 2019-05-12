@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using trackinger.Models;
 
-namespace trackinger.Pages.Bugs
+namespace trackinger.Pages.Notification
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace trackinger.Pages.Bugs
             _context = context;
         }
 
-        public Bug Bug { get; set; }
+        public Models.Notification Notification { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,10 +27,11 @@ namespace trackinger.Pages.Bugs
                 return NotFound();
             }
 
-            Bug = await _context.Bug
-                .Include(b => b.Creator).FirstOrDefaultAsync(m => m.Id == id);
+            Notification = await _context.Notification
+                .Include(n => n.Assignee)
+                .Include(n => n.Bug).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Bug == null)
+            if (Notification == null)
             {
                 return NotFound();
             }

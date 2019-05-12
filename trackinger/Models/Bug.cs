@@ -17,16 +17,11 @@ namespace trackinger.Models
     {
         public int Id { get; set; }
         [DataType(DataType.Date)]
-        public DateTime NotificationDate { get; set; }
+        public DateTime CreationDate { get; set; }
         public String Description { get; set; }
-        public Status Status { get; set; }
         public Priority Priority { get; set; }
         public int? CreatorId { get; set; }
-        public int? AssigneeId { get; set; }
         public User Creator { get; set; }
-        public User Assignee { get; set; }
-
-
 
     }
 }

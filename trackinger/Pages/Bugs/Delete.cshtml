@@ -13,22 +13,16 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Bug.NotificationDate)
+            @Html.DisplayNameFor(model => model.Bug.CreationDate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Bug.NotificationDate)
+            @Html.DisplayFor(model => model.Bug.CreationDate)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Bug.Description)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Bug.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Bug.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Bug.Status)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Bug.Priority)
@@ -41,12 +35,6 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Bug.Creator.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Bug.Assignee)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Bug.Assignee.Id)
         </dd>
     </dl>
     

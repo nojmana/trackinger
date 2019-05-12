@@ -1,5 +1,5 @@
 ﻿@page
-@model trackinger.Pages.Bugs.IndexModel
+@model trackinger.Pages.Notification.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,34 +14,40 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].CreationDate)
+                @Html.DisplayNameFor(model => model.Notification[0].NotificationDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].Description)
+                @Html.DisplayNameFor(model => model.Notification[0].Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].Priority)
+                @Html.DisplayNameFor(model => model.Notification[0].Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].Creator)
+                @Html.DisplayNameFor(model => model.Notification[0].Bug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notification[0].Assignee)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Bug) {
+@foreach (var item in Model.Notification) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CreationDate)
+                @Html.DisplayFor(modelItem => item.NotificationDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Priority)
+                @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Creator.Id)
+                @Html.DisplayFor(modelItem => item.Bug.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assignee.Id)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

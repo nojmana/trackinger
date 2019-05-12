@@ -25,15 +25,34 @@ namespace trackinger.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AssigneeId");
+                    b.Property<DateTime>("CreationDate");
 
                     b.Property<int?>("CreatorId");
 
                     b.Property<string>("Description");
 
-                    b.Property<DateTime>("NotificationDate");
-
                     b.Property<int>("Priority");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.ToTable("Bug");
+                });
+
+            modelBuilder.Entity("trackinger.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AssigneeId");
+
+                    b.Property<int>("BugId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<DateTime>("NotificationDate");
 
                     b.Property<int>("Status");
 
@@ -41,9 +60,9 @@ namespace trackinger.Migrations
 
                     b.HasIndex("AssigneeId");
 
-                    b.HasIndex("CreatorId");
+                    b.HasIndex("BugId");
 
-                    b.ToTable("Bug");
+                    b.ToTable("Notification");
                 });
 
             modelBuilder.Entity("trackinger.Models.User", b =>
@@ -65,13 +84,21 @@ namespace trackinger.Migrations
 
             modelBuilder.Entity("trackinger.Models.Bug", b =>
                 {
+                    b.HasOne("trackinger.Models.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId");
+                });
+
+            modelBuilder.Entity("trackinger.Models.Notification", b =>
+                {
                     b.HasOne("trackinger.Models.User", "Assignee")
                         .WithMany()
                         .HasForeignKey("AssigneeId");
 
-                    b.HasOne("trackinger.Models.User", "Creator")
+                    b.HasOne("trackinger.Models.Bug", "Bug")
                         .WithMany()
-                        .HasForeignKey("CreatorId");
+                        .HasForeignKey("BugId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

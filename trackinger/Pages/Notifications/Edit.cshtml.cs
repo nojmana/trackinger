@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using trackinger.Models;
 
-namespace trackinger.Pages.Bugs
+namespace trackinger.Pages.Notification
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace trackinger.Pages.Bugs
         }
 
         [BindProperty]
-        public Bug Bug { get; set; }
+        public Models.Notification Notification { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,14 +29,16 @@ namespace trackinger.Pages.Bugs
                 return NotFound();
             }
 
-            Bug = await _context.Bug
-                .Include(b => b.Creator).FirstOrDefaultAsync(m => m.Id == id);
+            Notification = await _context.Notification
+                .Include(n => n.Assignee)
+                .Include(n => n.Bug).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Bug == null)
+            if (Notification == null)
             {
                 return NotFound();
             }
-           ViewData["CreatorId"] = new SelectList(_context.User, "Id", "Id");
+           ViewData["AssigneeId"] = new SelectList(_context.User, "Id", "Id");
+           ViewData["BugId"] = new SelectList(_context.Bug, "Id", "Id");
             return Page();
         }
 
@@ -47,7 +49,7 @@ namespace trackinger.Pages.Bugs
                 return Page();
             }
 
-            _context.Attach(Bug).State = EntityState.Modified;
+            _context.Attach(Notification).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +57,7 @@ namespace trackinger.Pages.Bugs
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BugExists(Bug.Id))
+                if (!NotificationExists(Notification.Id))
                 {
                     return NotFound();
                 }
@@ -68,9 +70,9 @@ namespace trackinger.Pages.Bugs
             return RedirectToPage("./Index");
         }
 
-        private bool BugExists(int id)
+        private bool NotificationExists(int id)
         {
-            return _context.Bug.Any(e => e.Id == id);
+            return _context.Notification.Any(e => e.Id == id);
         }
     }
 }
