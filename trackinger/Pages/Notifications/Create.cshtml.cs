@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using trackinger.Models;
 
-namespace trackinger.Pages.Bugs
+namespace trackinger.Pages.Notification
 {
     public class CreateModel : PageModel
     {
@@ -20,12 +20,13 @@ namespace trackinger.Pages.Bugs
 
         public IActionResult OnGet()
         {
-        ViewData["CreatorId"] = new SelectList(_context.User, "Id", "Id");
+        ViewData["AssigneeId"] = new SelectList(_context.User, "Id", "Login");
+        ViewData["BugId"] = new SelectList(_context.Bug, "Id", "Title");
             return Page();
         }
 
         [BindProperty]
-        public Bug Bug { get; set; }
+        public Models.Notification Notification { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -34,7 +35,7 @@ namespace trackinger.Pages.Bugs
                 return Page();
             }
 
-            _context.Bug.Add(Bug);
+            _context.Notification.Add(Notification);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

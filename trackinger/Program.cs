@@ -27,7 +27,7 @@ namespace trackinger
                 {
                     var context = services.GetRequiredService<TrackingerContext>();
                     context.Database.Migrate();
-                    SeedData.Initialize(services);
+                    SeedData.Initialize(context);
                 }
                 catch (Exception e)
                 {

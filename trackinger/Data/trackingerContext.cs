@@ -17,5 +17,8 @@ namespace trackinger.Models
         public DbSet<trackinger.Models.User> User { get; set; }
 
         public DbSet<trackinger.Models.Bug> Bug { get; set; }
+
+        public DbSet<trackinger.Models.Notification> Notification { get; set; }
+
     }
 }

@@ -3,30 +3,33 @@ using System.ComponentModel.DataAnnotations;
 
 namespace trackinger.Models
 {
-
     public enum Status
     {
-        open, in_progress, done
+        open,
+        in_progress,
+        done
     }
 
     public enum Priority
     {
-        low, medium, high
+        low,
+        medium,
+        high
     }
+
     public class Bug
     {
         public int Id { get; set; }
+
+        [Display(Name = "Creation date")]
         [DataType(DataType.Date)]
-        public DateTime NotificationDate { get; set; }
-        public String Description { get; set; }
-        public Status Status { get; set; }
+        [Required]
+        public DateTime CreationDate { get; set; }
+
+        [Required] public String Title { get; set; }
+        [Required] public String Description { get; set; }
         public Priority Priority { get; set; }
-        public int? CreatorId { get; set; }
-        public int? AssigneeId { get; set; }
+        [Display(Name = "Creator")] public int? CreatorId { get; set; }
         public User Creator { get; set; }
-        public User Assignee { get; set; }
-
-
-
     }
 }
