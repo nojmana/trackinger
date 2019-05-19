@@ -1,3 +1,4 @@
+dist: bionic
 language: csharp
 solution: trackinger.sln
 mono: none
