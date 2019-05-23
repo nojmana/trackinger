@@ -1,0 +1,12 @@
+dist: bionic
+language: csharp
+solution: trackinger.sln
+mono: none
+sudo: required
+dotnet: 2.2
+
+install:
+- dotnet restore
+
+script:
+- dotnet build

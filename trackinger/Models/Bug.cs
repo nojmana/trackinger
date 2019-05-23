@@ -29,6 +29,7 @@ namespace trackinger.Models
         [Required] public String Title { get; set; }
         [Required] public String Description { get; set; }
         public Priority Priority { get; set; }
+        [Required]
         [Display(Name = "Creator")] public int? CreatorId { get; set; }
         public User Creator { get; set; }
     }

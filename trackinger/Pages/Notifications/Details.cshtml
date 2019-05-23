@@ -33,13 +33,17 @@
             @Html.DisplayNameFor(model => model.Notification.Bug)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Notification.Bug.Title)
+            <a asp-page="../Bugs/Details" asp-route-id="@Model.Notification.BugId">
+                @Html.DisplayFor(model => model.Notification.Bug.Title)
+            </a>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Notification.Assignee)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Notification.Assignee.Login)
+            <a asp-page="../Bugs/Details" asp-route-id="@Model.Notification.AssigneeId">
+                @Html.DisplayFor(model => model.Notification.Assignee.Login)
+            </a>
         </dd>
     </dl>
 </div>

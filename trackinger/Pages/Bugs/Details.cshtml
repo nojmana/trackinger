@@ -39,7 +39,9 @@
             @Html.DisplayNameFor(model => model.Bug.Creator)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Bug.Creator.Login)
+            <a asp-page="../Users/Details" asp-route-id="@Model.Bug.CreatorId">
+                @Html.DisplayFor(model => model.Bug.Creator.Login)
+            </a>
         </dd>
     </dl>
 </div>
