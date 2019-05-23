@@ -47,7 +47,9 @@
                 @Html.DisplayFor(modelItem => item.Priority)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Creator.Login)
+                <a asp-page="../Users/Details" asp-route-id="@item.CreatorId">
+                   @Html.DisplayFor(modelItem => item.Creator.Login)
+                </a>
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
