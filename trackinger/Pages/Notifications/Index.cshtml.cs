@@ -26,5 +26,7 @@ namespace trackinger.Pages.Notification
                 .Include(n => n.Assignee)
                 .Include(n => n.Bug).ToListAsync();
         }
+        
+        
     }
 }
