@@ -14,19 +14,29 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].CreationDate)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CreationDateSort">
+                    @Html.DisplayNameFor(model => model.Bug[0].CreationDate)
+                </a>
             </th>            
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].Title)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
+                    @Html.DisplayNameFor(model => model.Bug[0].Title)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].Description)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DescriptionSort">
+                    @Html.DisplayNameFor(model => model.Bug[0].Description)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].Priority)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PrioritySort">
+                    @Html.DisplayNameFor(model => model.Bug[0].Priority)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Bug[0].Creator)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CreatorSort">
+                    @Html.DisplayNameFor(model => model.Bug[0].Creator)
+                </a>
             </th>
             <th></th>
         </tr>
