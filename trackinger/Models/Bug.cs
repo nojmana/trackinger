@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace trackinger.Models
@@ -32,5 +33,6 @@ namespace trackinger.Models
         [Required]
         [Display(Name = "Creator")] public int? CreatorId { get; set; }
         public User Creator { get; set; }
+        public IList<Notification> Notification { get; set; }
     }
 }

@@ -12,27 +12,37 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
+    <tr>
+        <th>
+            <a asp-page="./Index" asp-route-sortOrder="@Model.NotificationDateSort">
                 @Html.DisplayNameFor(model => model.Notification[0].NotificationDate)
-            </th>
-            <th>
+            </a>
+        </th>
+        <th>
+            <a asp-page="./Index" asp-route-sortOrder="@Model.BugSort">
                 @Html.DisplayNameFor(model => model.Notification[0].Bug)
-            </th>
-            <th>
+            </a>
+        </th>
+        <th>
+            <a asp-page="./Index" asp-route-sortOrder="@Model.DescriptionSort">
                 @Html.DisplayNameFor(model => model.Notification[0].Description)
-            </th>
-            <th>
+            </a>
+        </th>
+        <th>
+            <a asp-page="./Index" asp-route-sortOrder="@Model.StatusSort">
                 @Html.DisplayNameFor(model => model.Notification[0].Status)
-            </th>
-            <th>
+            </a>
+        </th>
+        <th>                
+            <a asp-page="./Index" asp-route-sortOrder="@Model.AssigneeSort">
                 @Html.DisplayNameFor(model => model.Notification[0].Assignee)
-            </th>
-            <th></th>
-        </tr>
+            </a>
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Notification) {
+    @foreach (var item in Model.Notification) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NotificationDate)
@@ -60,6 +70,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
