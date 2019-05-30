@@ -28,7 +28,9 @@ namespace trackinger.Pages.Bugs
             }
 
             Bug = await _context.Bug
-                .Include(b => b.Creator).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(b => b.Creator)
+                .Include(b => b.Notification)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Bug == null)
             {

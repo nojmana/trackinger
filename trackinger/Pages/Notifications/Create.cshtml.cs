@@ -30,8 +30,6 @@ namespace trackinger.Pages.Notification
 
         public async Task<IActionResult> OnPostAsync()
         {
-
-            String eeelele = Notification.ToString();
             if (!ModelState.IsValid)
             {
                 return Page();
