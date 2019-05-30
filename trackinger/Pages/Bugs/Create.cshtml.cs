@@ -20,7 +20,7 @@ namespace trackinger.Pages.Bugs
 
         public IActionResult OnGet()
         {
-        ViewData["CreatorId"] = new SelectList(_context.User, "Id", "Id");
+        ViewData["CreatorId"] = new SelectList(_context.User, "Id", "Login");
             return Page();
         }
 

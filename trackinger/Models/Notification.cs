@@ -18,7 +18,7 @@ namespace trackinger.Models
         [Required] public String Description { get; set; }
         [Required] public Status Status { get; set; }
         [Required] [Display(Name = "Bug")] public int BugId { get; set; }
-        [Required] public Bug Bug { get; set; }
+        public Bug Bug { get; set; }
         [Display(Name = "Assignee")] public int? AssigneeId { get; set; }
         public User Assignee { get; set; }
     }
